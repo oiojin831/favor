@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :wishes
+
   devise_for :users
   root 'welcome#index'
 
