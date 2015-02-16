@@ -24,5 +24,42 @@ $navbar-default-link-hover-bg: black;
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
-
-body { padding-top: 60px; }
+$default-padding : 15px;
+$default-screen-width:1170px;
+$list-row-top: 45px;
+$screen-sm: 768px;
+$screen-md: 992px;
+$screen-lg: 1200px;
+body { padding-top: 50px; }
+a:hover{
+  text-decoration: none;
+}
+.cls-container{
+  margin: 0 auto;
+  max-width:$default-screen-width;
+  @media (min-width: $default-screen-width)  {
+    border-right: 1px solid gray;
+    border-left: 1px solid gray;
+    border-top: 1px solid gray;
+  }
+}
+.cls-addbar{
+  padding: 0 $default-padding;
+  margin: $default-padding 0;
+  input{
+    @media (min-width: $screen-lg)  {width:98%;}
+    @media (min-width: $screen-md) and (max-width: $screen-lg)  {width:97%;}
+    @media (min-width: $screen-sm) and (max-width: $screen-md)  {width:96%;}
+    @media (max-width: $screen-sm) {width:95%;}
+  }
+}
+.cls-list-row{
+  border-top : 1px solid gray;
+  line-height: $list-row-top;
+  span{
+    margin-left:$default-padding;
+  }
+}
+.cls-friend-list{
+  border-bottom: 1px solid gray;
+}
