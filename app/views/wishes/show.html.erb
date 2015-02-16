@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Wish type:</strong>
+  <%= @wish.wish_type %>
+</p>
+
+<p>
+  <strong>Done:</strong>
+  <%= @wish.done %>
+</p>
+
+<p>
+  <strong>Content:</strong>
+  <%= @wish.content %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @wish.user.present? ? @wish.user.email : "n/a" %>
+</p>
+
+<%= link_to 'Edit', edit_wish_path(@wish) %> |
+<%= link_to 'Back', wishes_path %>

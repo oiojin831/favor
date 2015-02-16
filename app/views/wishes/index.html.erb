@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Wishes</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Wish type</th>
+      <th>Created by</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @wishes.each do |wish| %>
+      <tr>
+        <td class="col-md-6 col-xs-6"><%= wish.wish_type %></td>
+        <td><%= wish.user.present? ? wish.user.email : "n/a" %>, <%= time_ago_in_words(wish.created_at) %> ago</td>
+        <td>
+          <%= link_to "<span class='glyphicon glyphicon-eye-open'></span>".html_safe, wish %>
+          <%= link_to "<span class='glyphicon glyphicon-edit'></span>".html_safe, edit_wish_path(wish) %>
+          <%= link_to "<span class='glyphicon glyphicon-trash'></span>".html_safe, wish, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'New Wish', new_wish_path, class: "btn btn-default" %>

@@ -21,6 +21,8 @@ $navbar-default-link-active-color: $light-sky;
 $navbar-default-link-hover-color: white;
 $navbar-default-link-hover-bg: black;
 
+
+@import "bootstrap-sprockets";
 @import "bootstrap";
 $default-padding : 15px;
 $default-screen-width:1170px;
