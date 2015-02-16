@@ -6,14 +6,11 @@
       </span>
     </div>
     <div class='cls-friend-list'>
-      <div class='cls-list-row'>
-        <a href='#'><span>Lee sanghyeok</span></a>
-      </div>
-      <div class='cls-list-row'>
-        <a href='#'><span>Lee ungjin</span></a>
-      </div>
-      <div class='cls-list-row'>
-        <a href='#'><span>girl friend!!</span></a>
+        <% User.all.each do |user| %>
+          <div class='cls-list-row'>
+            <span> <%= link_to user.email, "#" %></a> </span>
+          </div>
+        <% end %>
       </div>
     </div>
   </div>
