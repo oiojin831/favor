@@ -1,10 +1,11 @@
 class WishesController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_wish, only: [:show, :edit, :update, :destroy]
 
   # GET /wishes
   # GET /wishes.json
   def index
-    @wishes = Wish.all
+    @wishes = Wish.order(created_at: :desc)
   end
 
   # GET /wishes/1
