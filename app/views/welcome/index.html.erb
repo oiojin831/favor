@@ -1,8 +1,22 @@
-<h1>Welcome#index</h1>
-<p>Find me in app/views/welcome/index.html.erb</p>
 <% if user_signed_in? %>
-  <p>current user email: <%= current_user.email %></p>
-  <p><%= link_to "로그아웃", destroy_user_session_path, method: :delete, data: { confirm: "Are you sure?" } %></p>
+  <div class='cls-container'>
+    <div class='cls-addbar'>
+      <input type='text' placeholder='search'/>
+      <span class='glyphicon glyphicon-plus-sign' aria-hidden='true'>
+      </span>
+    </div>
+    <div class='cls-friend-list'>
+      <div class='cls-list-row'>
+        <a href='#'><span>Lee sanghyeok</span></a>
+      </div>
+      <div class='cls-list-row'>
+        <a href='#'><span>Lee ungjin</span></a>
+      </div>
+      <div class='cls-list-row'>
+        <a href='#'><span>girl friend!!</span></a>
+      </div>
+    </div>
+  </div>
 <% else %>
   <p><%= link_to "로그인", new_user_session_path %></p>
 <% end %>
