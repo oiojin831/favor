@@ -5,7 +5,8 @@ class WishesController < ApplicationController
   # GET /wishes
   # GET /wishes.json
   def index
-    @wishes = Wish.order(created_at: :desc)
+    # @wishes = Wish.order(created_at: :desc)
+    @wishes = current_user.wishes.order(created_at: :desc)
   end
 
   # GET /wishes/1
