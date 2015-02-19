@@ -16,7 +16,6 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'devise'
 gem 'rolify'
 gem 'authority'
-gem 'amistad'
 gem 'bootstrap-sass'
 gem 'simple_form'
 
