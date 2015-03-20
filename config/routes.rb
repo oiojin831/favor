@@ -1,9 +1,12 @@
 Rails.application.routes.draw do
+  resources :friendships
+
   resources :wishes
 
   devise_for :users
   root 'welcome#index'
   get 'help' => 'welcome#help'
+  resources :users, only: ["show", "index"]
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
