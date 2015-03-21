@@ -29,3 +29,8 @@
 <br>
 
 <%= link_to 'New Friendship', new_friendship_path %>
+
+<h1> Friends </h1>
+  <% @friends.each do |friend| %>
+    <%= friend.email %><br>
+  <% end %>
