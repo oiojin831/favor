@@ -1,15 +1,13 @@
 <ul>
-  <h2> Users</h2>
   <% @users.each do |user| %>
     <li><%= user.email %></li>
+    <% current_user.friends.each do |fr| %>
+      <% unless (fr.id == user.id && current_user == user.id) %>
         <%= form_for :friendship, url: friendships_path do |f| %>
           <%= f.text_field :friend_id, value: user.id %>
-          <%= f.submit "send friend request" %>
+          <%= f.submit %>
         <% end %>
-  <% end %>
-
-  <h2> Friends</h2>
-  <% @friends.each do |fr| %>
-    <li><%= fr.email %></li>
+      <% end %>
+    <% end %>
   <% end %>
 </ul>

@@ -16,4 +16,6 @@ class User < ActiveRecord::Base
   def friends
     active_friends | passive_friends
   end
+
+  scope :all_except, ->(user) { where.not(id: (user.friends + [user]).map(&:id)) }
 end

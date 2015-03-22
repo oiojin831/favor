@@ -4,6 +4,8 @@ class UsersController < ApplicationController
   end
 
   def index
-    @users = User.all
+    @users = User.all_except(current_user)
+    @friends = current_user.friends
   end
+
 end
