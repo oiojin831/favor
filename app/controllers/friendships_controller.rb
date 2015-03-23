@@ -38,7 +38,6 @@ class FriendshipsController < ApplicationController
   # PATCH/PUT /friendships/1
   # PATCH/PUT /friendships/1.json
   def update
-		binding.pry
     @friendship = Friendship.where(friend_id: current_user[:id], user_id: params[:friendship][:user_id]).first
     @friendship.update(approved: true)
       if @friendship.save
