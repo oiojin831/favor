@@ -3,11 +3,26 @@
   <% @users.each do |user| %>
     <li><%= user.email %></li>
         <%= form_for :friendship, url: friendships_path do |f| %>
-          <%= f.text_field :friend_id, value: user.id %>
+          <%= f.hidden_field :friend_id, value: user.id %>
           <%= f.submit "send friend request" %>
         <% end %>
   <% end %>
 
+  <h2> Pending </h2>
+  <% @pendings.each do |p| %>
+    <li><%= p.email %>
+  <% end %>
+  <h2> requested</h2>
+  <% @requesteds.each do |p| %>
+    <% fs = p.friendships.find_by_user_id(p.id) %>
+    <li><%= p.email %>
+    <%= form_for fs do |f| %>
+      <%= f.hidden_field :approved, value: true %>
+      <%= f.hidden_field :friend_id, value: fs.friend_id %>
+      <%= f.hidden_field :user_id, value: fs.user_id %>
+      <%= f.submit "accept" %>
+    <% end %>
+  <% end %>
   <h2> Friends</h2>
   <% @friends.each do |fr| %>
     <li><%= fr.email %></li>
